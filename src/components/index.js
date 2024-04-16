@@ -61,8 +61,21 @@ function Dashboard() {
                 handleDelete={handleDelete} />
         </>
       )}
+      {isAdding && (
+        <Add
+            employees={employees}
+            setEmployees={setEmployees}
+            setIsAdding={setIsAdding} />
+      )}
+      {isEditing && (
+        <Edit 
+        employees={employees}
+        selectedEmployee={selectedEmployee}
+        setEmployees={setEmployees}
+        setIsEditing={setIsEditing} />
+      )}
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;
