@@ -17,13 +17,23 @@ function Add({ employees, setEmployees, setIsAdding }) {
 
   const handleAdd = e => {
     e.preventDefault();
-    if (!firstName || !lastName || !email || !salary || !startDate) {
+    if (!firstName || !lastName || !email || !salary || !date) {
       return Swal.fire({
         icon: 'error',
         title: 'Error!',
         text: 'All fields are required.',
         showConfirmButton: true
       });
+    }
+
+    const id = employees.length + 1;
+    const newEmployee = {
+      id,
+      firstName,
+      lastName,
+      email,
+      salary,
+      date
     }
   }
 
