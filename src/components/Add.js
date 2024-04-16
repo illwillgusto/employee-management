@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import Swal from 'sweetalert2';
 
 function Add({ employees, setEmployees, setIsAdding }) {
 
@@ -7,6 +8,24 @@ function Add({ employees, setEmployees, setIsAdding }) {
   const [email, setEmail] = useState('');
   const [salary, setSalary] = useState('');
   const [date, setDate] = useState('');
+
+  const textInput = useRef(null);
+
+  useEffect(() => {
+    textInput.current.focus();
+  }, [])
+
+  const handleAdd = e => {
+    e.preventDefault();
+    if (!firstName || !lastName || !email || !salary || !startDate) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'All fields are required.',
+        showConfirmButton: true
+      });
+    }
+  }
 
   
   return (
@@ -66,7 +85,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
                 </div>
             </form>
     </div>
-  )
+  );
 }
 
 export default Add
