@@ -11,6 +11,18 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
   const [salary, setSalary] = useState(selectedEmployee.salary);
   const [date, setDate] = useState(selectedEmployee.date);
 
+  const handleUpdate = e => {
+    e.preventDefault();
+
+    if (!firstName || !lastName || !email || !salary || !date) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'All fields are required.',
+        showConfirmButton: true
+      });
+  }
+
 
   return (
     <div className='small-container'>
@@ -68,7 +80,9 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
                 </div>
             </form>
     </div>
-  )
+  );
+}
+
 }
 
 export default Edit
