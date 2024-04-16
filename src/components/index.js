@@ -23,28 +23,28 @@ function Dashboard() {
     }
 
     const handleDelete = (id) => {
-        // // Swal.fire({
-        // //     icon: 'warning',
-        // //     title: 'Are you sure?',
-        // //     text: "You won't be able to revert this!",
-        // //     showCancelButton: true,
-        // //     confirmButtonText: 'Yes, delete it!',
-        // //     cancelButtonText: "No, cancel.",
-        // // }).then(result => {
-        // //     if (result.value) {
-        // //         const [employee] = employees.filter(employee => employee.id === id);
+        Swal.fire({
+            icon: 'warning',
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: "No, cancel.",
+        }).then(result => {
+            if (result.value) {
+                const [employee] = employees.filter(employee => employee.id === id);
 
-        // //         Swal.fire({
-        // //             icon: 'success',
-        // //             title: 'Deleted',
-        // //             text: `${employee.firstName} ${employee.lastName}'s account has been deleted.`,
-        // //             showConfirmButton: false,
-        // //             timer: 1300,
-        // //         });
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted',
+                    text: `${employee.firstName} ${employee.lastName}'s account has been deleted.`,
+                    showConfirmButton: false,
+                    timer: 1300,
+                });
 
-        // //         setEmployees(employees.filter(employee => employee.id = id));
-        //     }
-        // });
+                setEmployees(employees.filter(employee => employee.id = id));
+             }
+         });
         
     }
 
