@@ -1,6 +1,14 @@
 import React from 'react'
 
 function List({ employees, handleEdit, handleDelete }) {
+
+  const formatter = new Intl.NumberFormat('en-US',{
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: null
+  });
+
+  
   return (
     <div className='contain-table'>
       <table className='striped-table'>
