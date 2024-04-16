@@ -11,10 +11,11 @@ import { employeesData } from '../../src/data';
 function Dashboard() {
 
     const [employees, setEmployees] = useState(employeesData);
+    const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
-    
+
 
   return (
     <div>
