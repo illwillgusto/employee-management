@@ -16,10 +16,10 @@ function Dashboard() {
     const [isEditing, setIsEditing] = useState(false);
 
     const handleEdit = (id) => {
-        // const [employee] = employees.filter(employee => employee.id === id);
+        const [employee] = employees.filter(employee => employee.id === id);
 
-        // setSelectedEmployee(employee);
-        // setIsEditing(true);
+        setSelectedEmployee(employee);
+        setIsEditing(true);
     }
 
     const handleDelete = (id) => {
