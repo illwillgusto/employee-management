@@ -8,7 +8,7 @@ function List({ employees, handleEdit, handleDelete }) {
     minimumFractionDigits: null
   });
 
-  
+
   return (
     <div className='contain-table'>
       <table className='striped-table'>
@@ -32,7 +32,7 @@ function List({ employees, handleEdit, handleDelete }) {
           <td>{employee.lastName}</td>
           <td>{employee.email}</td>
           <td>{formatter.format(employee.salary)}</td>
-          <td>{employee.startDate} </td>
+          <td>{employee.date} </td>
           <td className='text-right'>
             <button onClick={() => handleEdit(employee.id)} className='"button muted-button'>Edit</button>
           </td>

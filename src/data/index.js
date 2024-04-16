@@ -5,7 +5,7 @@ const employeesData = [
         lastName: 'Doe',
         email: 'johndoe@example.com',
         salary: '9500',
-        startDate: '2024-04-16'
+        date: '2024-04-16'
     },
 ];
 
