@@ -5,7 +5,7 @@ function Header({ setIsAdding }) {
     <header>
       <h1>Employee Management System</h1>
     <div>
-      <button>Add Button</button>
+      <button onClick={() => setIsAdding(true)} className='round-button'>Add Button</button>
     </div>
     </header>
   )
