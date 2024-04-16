@@ -23,6 +23,34 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
       });
   }
 
+  const employee = {
+    id,
+    firstName,
+    lastName,
+    email,
+    salary,
+    date
+};
+
+for (let i = 0; i < employees.length; i++) {
+    if (employees[i].id === id) {
+        employees.splice(i, 1, employee);
+        break;
+    }
+}
+
+setEmployees(employees);
+setIsEditing(false);
+
+Swal.fire({
+    icon: 'success',
+    title: 'Updated!',
+    text: `${employee.firstName} ${employee.lastName}'s data has been updated.`,
+    showConfirmButton: false,
+    timer: 1500
+});
+};
+
 
   return (
     <div className='small-container'>
@@ -83,6 +111,6 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
   );
 }
 
-}
+
 
 export default Edit
