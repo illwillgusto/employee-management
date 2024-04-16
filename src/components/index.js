@@ -15,14 +15,14 @@ function Dashboard() {
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleEdit = () => {
+    const handleEdit = (id) => {
         // const [employee] = employees.filter(employee => employee.id === id);
 
         // setSelectedEmployee(employee);
         // setIsEditing(true);
     }
 
-    const handleDelete = () => {
+    const handleDelete = (id) => {
         // // Swal.fire({
         // //     icon: 'warning',
         // //     title: 'Are you sure?',
