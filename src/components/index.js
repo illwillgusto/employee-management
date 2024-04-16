@@ -9,6 +9,8 @@ import Edit from './Edit';
 import { employeesData } from '../../src/data';
 
 function Dashboard() {
+
+    const [employees, setEmployees] = useState(employeesData);
   return (
     <div>
       Dashboard
