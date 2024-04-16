@@ -35,6 +35,17 @@ function Add({ employees, setEmployees, setIsAdding }) {
       salary,
       date
     }
+    employees.push(newEmployee);
+    setEmployees(employees);
+    setIsAdding(false);
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Added!',
+      text: `${firstName} ${lastName}'s data has been Added.`,
+      showConfirmButton: false,
+      timer: 1300
+    })
   }
 
   
