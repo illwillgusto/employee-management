@@ -6,9 +6,13 @@ function List({ employees, handleEdit, handleDelete }) {
       <table className='striped-table'>
   <thead>
     <tr>
-      <th>Head 1</th>
-      <th>Head 2</th>
-      <th>Head 3</th>
+      <th>No.</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>Start Date</th>
+      <th colSpan={2} className='text-center'>Actions</th>
     </tr>
   </thead>
   <tfoot>
