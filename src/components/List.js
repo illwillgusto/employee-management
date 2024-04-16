@@ -2,8 +2,8 @@ import React from 'react'
 
 function List({ employees, handleEdit, handleDelete }) {
   return (
-    <div>
-      <table>
+    <div className='contain-table'>
+      <table className='striped-table'>
   <thead>
     <tr>
       <th>Head 1</th>
