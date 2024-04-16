@@ -45,7 +45,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
       text: `${firstName} ${lastName}'s data has been Added.`,
       showConfirmButton: false,
       timer: 1300
-    })
+    });
   }
 
   
