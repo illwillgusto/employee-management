@@ -18,8 +18,16 @@ function Dashboard() {
 
 
   return (
-    <div>
-      Dashboard
+    <div className='container'>
+      {!isAdding && !isEditing && (
+        <>
+            <Header setIsAdding={setIsAdding} />
+            <List
+                employees={employees}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete} />
+        </>
+      )}
     </div>
   )
 }
