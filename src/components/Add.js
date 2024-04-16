@@ -1,57 +1,57 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Swal from 'sweetalert2';
 
 function Add({ employees, setEmployees, setIsAdding }) {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [salary, setSalary] = useState('');
-  const [date, setDate] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [salary, setSalary] = useState('');
+    const [date, setDate] = useState('');
 
-  const textInput = useRef(null);
+    const textInput = useRef(null);
 
-  useEffect(() => {
-    textInput.current.focus();
-  }, [])
+    useEffect(() => {
+        textInput.current.focus();
+    }, [])
 
-  const handleAdd = e => {
-    e.preventDefault();
-    if (!firstName || !lastName || !email || !salary || !date) {
-      return Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'All fields are required.',
-        showConfirmButton: true
-      });
+    const handleAdd = e => {
+        e.preventDefault();
+        if (!firstName || !lastName || !email || !salary || !date) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'All fields are required.',
+                showConfirmButton: true
+            });
+        }
+
+        const id = employees.length + 1;
+        const newEmployee = {
+            id,
+            firstName,
+            lastName,
+            email,
+            salary,
+            date
+        }
+        employees.push(newEmployee);
+        setEmployees(employees);
+        setIsAdding(false);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Added!',
+            text: `${firstName} ${lastName}'s data has been Added.`,
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
 
-    const id = employees.length + 1;
-    const newEmployee = {
-      id,
-      firstName,
-      lastName,
-      email,
-      salary,
-      date
-    }
-    employees.push(newEmployee);
-    setEmployees(employees);
-    setIsAdding(false);
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Added!',
-      text: `${firstName} ${lastName}'s data has been Added.`,
-      showConfirmButton: false,
-      timer: 1300
-    });
-  }
-
-  
-  return (
-    <div className='small-container'>
-      <form onSubmit={handleAdd}>
+    return (
+        <div className="small-container">
+            <form onSubmit={handleAdd}>
                 <h1>Add Employee</h1>
                 <label htmlFor="firstName">First Name</label>
                 <input
@@ -105,8 +105,8 @@ function Add({ employees, setEmployees, setIsAdding }) {
                     />
                 </div>
             </form>
-    </div>
-  );
+        </div>
+    );
 }
 
 export default Add
