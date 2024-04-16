@@ -1,9 +1,9 @@
 import React from 'react'
 
-function List() {
+function List({ employees, handleEdit, handleDelete }) {
   return (
     <div>
-      
+      List
     </div>
   )
 }
