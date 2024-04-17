@@ -10,10 +10,17 @@ import { employeesData } from '../../src/data';
 
 function Dashboard() {
 
-    const [employees, setEmployees] = useState(employeesData);
+    const [employees, setEmployees] = useState([]);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    useEffect(() => {
+        fetch('/employees')
+          .then(response => response.json())
+          .then(data => setEmployees(data))
+          .catch(error => console.error('Error fetching data:', error));
+    }, []);
 
     //Load data from Local Storage 
     useEffect(() => {
@@ -61,7 +68,7 @@ function Dashboard() {
                     timer: 1300,
                 });
 
-                setEmployees(employees.filter(employee => employee.id = id));
+                setEmployees(employees.filter(employee => employee.id !== id));
              }
          });
         
