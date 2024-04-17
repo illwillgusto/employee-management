@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 
 import Header from './Header';
@@ -14,6 +14,14 @@ function Dashboard() {
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isAdding, setIsAdding] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
+
+    //Load data from Local Storage 
+    useEffect(() => {
+        const storedEmployees = localStorage.getItem('employees');
+        if (storedEmployees) {
+            setEmployees(JSON.parse(storedEmployees));
+        }
+    }, []);
 
     const handleEdit = (id) => {
         const [employee] = employees.filter(employee => employee.id === id);
