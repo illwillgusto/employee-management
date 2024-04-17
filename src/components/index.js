@@ -19,7 +19,13 @@ function Dashboard() {
     useEffect(() => {
         const storedEmployees = localStorage.getItem('employees');
         if (storedEmployees) {
-            setEmployees(JSON.parse(storedEmployees));
+            try {
+                const parsedEmployees = JSON.parse(storedEmployees);
+                setEmployees(parsedEmployees);
+            } catch (error) {
+                console.error("Failed to parse employees from local storage:", error);
+                // Handle errors or initialize with a default value if necessary
+            }
         }
     }, []);
 
