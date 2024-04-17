@@ -22,24 +22,6 @@ function Dashboard() {
           .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    //Load data from Local Storage 
-    useEffect(() => {
-        const storedEmployees = localStorage.getItem('employees');
-        if (storedEmployees) {
-            try {
-                const parsedEmployees = JSON.parse(storedEmployees);
-                setEmployees(parsedEmployees);
-            } catch (error) {
-                console.error("Failed to parse employees from local storage:", error);
-                // Handle errors or initialize with a default value if necessary
-            }
-        }
-    }, []);
-
-    // Save data to local storage 
-    useEffect(() => {
-        localStorage.setItem('employees', JSON.stringify(employees));
-    }, [employees]);
 
     const handleEdit = (id) => {
         const [employee] = employees.filter(employee => employee.id === id);

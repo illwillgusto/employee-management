@@ -35,10 +35,18 @@ function Add({ employees, setEmployees, setIsAdding }) {
             salary,
             date
         }
-        employees.push(newEmployee);
-        setEmployees(employees);
+        
+    fetch('/employees', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEmployee)
+    })
+    .then(response => response.json())
+    .then(data => {
+        setEmployees(prevEmployees => [...prevEmployees, data]); // Assuming the server returns the added employee
         setIsAdding(false);
-
         Swal.fire({
             icon: 'success',
             title: 'Added!',
@@ -46,7 +54,17 @@ function Add({ employees, setEmployees, setIsAdding }) {
             showConfirmButton: false,
             timer: 1500
         });
-    }
+    })
+    .catch(error => {
+        console.error('Error adding employee:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Failed to add!',
+            text: 'There was a problem adding the employee.',
+            showConfirmButton: true
+        });
+    });
+}
 
 
     return (
