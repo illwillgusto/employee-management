@@ -9,3 +9,14 @@ const DATA_FILE = './employeesData.json';
 
 app.use(cors());
 app.use(bodyParser.json());
+
+// Endpoint to get employees
+app.get('/employees', (req, res) => {
+    fs.readFile(DATA_FILE, (err, data) => {
+        if(err) {
+            res.status(500).send('Error reading data file.');
+            return;
+        }
+        res.json(JSON.parse(data));
+    });
+});
