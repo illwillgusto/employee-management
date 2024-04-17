@@ -20,3 +20,23 @@ app.get('/employees', (req, res) => {
         res.json(JSON.parse(data));
     });
 });
+
+// Endpoint to add or update employees 
+app.post('/employees', (req, res) => {
+    const newEmployee = req.body;
+    fs.readFile(DATA_FILE, (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading data file.');
+            return;
+        }
+        const employees = JSON.parse(data);
+        employees.push(newEmployee); // This should be modified to handle updates as well
+        fs.writeFile(DATA_FILE, JSON.stringify(employees, null, 2), (err) => {
+            if (err) {
+                res.status(500).send('Error writing to data file.');
+                return;
+            }
+            res.send('Employee added/updated.');
+        });
+    });
+});
