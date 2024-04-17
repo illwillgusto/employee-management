@@ -23,6 +23,11 @@ function Dashboard() {
         }
     }, []);
 
+    // Save data to local storage 
+    useEffect(() => {
+        localStorage.setItem('employees', JSON.stringify(employees));
+    }, [employees]);
+
     const handleEdit = (id) => {
         const [employee] = employees.filter(employee => employee.id === id);
 
