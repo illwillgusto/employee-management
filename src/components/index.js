@@ -16,7 +16,7 @@ function Dashboard() {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        fetch('/employees')
+        fetch('backend/employeesData.json')
           .then(response => response.json())
           .then(data => setEmployees(data))
           .catch(error => console.error('Error fetching data:', error));
