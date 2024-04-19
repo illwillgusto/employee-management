@@ -43,6 +43,16 @@ app.post('/employees', (req, res) => {
     });
 });
 
+app.delete('/employees/:id', (req, res) => {
+    const employeeId = parseInt(req.params.id);
+
+    fs.readFile(DATA_FILE, (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading data file.');
+        }
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
