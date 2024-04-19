@@ -50,6 +50,9 @@ app.delete('/employees/:id', (req, res) => {
         if (err) {
             res.status(500).send('Error reading data file.');
         }
+
+        // Remove the employee
+        employees.splice(index, 1);
     })
 })
 
