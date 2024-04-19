@@ -58,10 +58,12 @@ app.delete('/employees/:id', (req, res) => {
         fs.writeFile(DATA_FILE, JSON.stringify(employees, null, 2), (err) => {
             if (err) {
                 res.status(500).send('Error writing to data file.');
+                return;
             }
-        })
-    })
-})
+            res.status(204).send(); // no content to send back 
+        });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
