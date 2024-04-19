@@ -53,6 +53,13 @@ app.delete('/employees/:id', (req, res) => {
 
         // Remove the employee
         employees.splice(index, 1);
+
+        // Write the updated array back to the file 
+        fs.writeFile(DATA_FILE, JSON.stringify(employees, null, 2), (err) => {
+            if (err) {
+                res.status(500).send('Error writing to data file.');
+            }
+        })
     })
 })
 
