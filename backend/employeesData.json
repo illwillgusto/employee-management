@@ -1,34 +1,50 @@
 [
-    {
-        "id": 1,
-        "firstName": "John",
-        "lastName": "Doe",
-        "email": "johndoe@example.com",
-        "salary": "95000",
-        "date": "2024-04-16"
-    },
-    {
-        "id": 2,
-        "firstName": "James",
-        "lastName": "Doe",
-        "email": "jamesdoe@example.com",
-        "salary": "95000",
-        "date": "2024-04-16"
-    },
-    {
-        "id": 3,
-        "firstName": "Bruce",
-        "lastName": "Wayne",
-        "email": "brucewayne@example.com",
-        "salary": "95000",
-        "date": "2024-04-16"
-    },
-    {
-        "id": 4,
-        "firstName": "Clark",
-        "lastName": "Kent",
-        "email": "clarkkent@example.com",
-        "salary": "95000",
-        "date": "2024-04-16"
-    }
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@example.com",
+    "salary": "95000",
+    "date": "2024-04-16"
+  },
+  {
+    "id": 2,
+    "firstName": "James",
+    "lastName": "Doe",
+    "email": "jamesdoe@example.com",
+    "salary": "95000",
+    "date": "2024-04-16"
+  },
+  {
+    "id": 3,
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "email": "brucewayne@example.com",
+    "salary": "95000",
+    "date": "2024-04-16"
+  },
+  {
+    "id": 4,
+    "firstName": "Clark",
+    "lastName": "Kent",
+    "email": "clarkkent@example.com",
+    "salary": "95000",
+    "date": "2024-04-16"
+  },
+  {
+    "id": 5,
+    "firstName": "Logan",
+    "lastName": "Wolverine",
+    "email": "logan@example.com",
+    "salary": "2233000",
+    "date": "2024-04-19"
+  },
+  {
+    "id": 6,
+    "firstName": "Logan",
+    "lastName": "Wolverine",
+    "email": "wolverine@mail.com",
+    "salary": "2200000",
+    "date": "2024-04-19"
+  }
 ]
