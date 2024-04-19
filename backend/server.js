@@ -7,7 +7,9 @@ const app = express();
 const PORT = 3003;
 const DATA_FILE = './employeesData.json';
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3003'
+}));
 app.use(bodyParser.json());
 
 // Endpoint to get employees
