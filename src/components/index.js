@@ -18,7 +18,10 @@ function Dashboard() {
     useEffect(() => {
         fetch('/employees')
           .then(response => response.json())
-          .then(data => setEmployees(data))
+          .then(data => {
+            console.log("Data received from backend:", data);
+            setEmployees(data);
+        })
           .catch(error => console.error('Error fetching data:', error));
     }, []);
 
