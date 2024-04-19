@@ -6,7 +6,7 @@ import List from './List';
 import Add from './Add';
 import Edit from './Edit';
 
-import { employeesData } from '../../src/data';
+
 
 function Dashboard() {
 
