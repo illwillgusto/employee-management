@@ -16,7 +16,7 @@ function Dashboard() {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        fetch('/employees')
+        fetch('http://localhost:3003/employees')
           .then(response => response.json())
           .then(data => {
             console.log("Data received from backend:", data);
