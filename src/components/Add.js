@@ -43,14 +43,20 @@ function Add({ employees, setEmployees, setIsAdding }) {
         },
         body: JSON.stringify(newEmployee)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(error => Promise.reject(error));
+        }
+        return response.json();
+    })
     .then(data => {
-        setEmployees(prevEmployees => [...prevEmployees, data]); // Assuming the server returns the added employee
+        console.log('Success:', data);
+        setEmployees(prev => [...prev, data]);
         setIsAdding(false);
         Swal.fire({
             icon: 'success',
             title: 'Added!',
-            text: `${firstName} ${lastName}'s data has been Added.`,
+            text: `${data.firstName} ${data.lastName}'s data has been added.`,
             showConfirmButton: false,
             timer: 1500
         });
@@ -60,7 +66,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
         Swal.fire({
             icon: 'error',
             title: 'Failed to add!',
-            text: 'There was a problem adding the employee.',
+            text: `There was a problem adding the employee: ${error.message || error.statusText}`,
             showConfirmButton: true
         });
     });
