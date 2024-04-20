@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3003;
+const PORT = 3001;
 const DATA_FILE = './employeesData.json';
 
 app.use(cors({
-    origin: 'http://localhost:3003'
+    origin: 'http://localhost:3001'
 }));
 app.use(bodyParser.json());
 
