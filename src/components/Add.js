@@ -36,7 +36,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
             date
         }
         
-    fetch('http://localhost:3003/employees', {
+    fetch('http://localhost:3000/employees', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
