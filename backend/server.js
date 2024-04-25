@@ -8,7 +8,7 @@ const PORT = 3003;
 const DATA_FILE = './employeesData.json';
 
 app.use(cors({
-    origin: 'http://localhost:3003'
+    origin: 'http://localhost:3002/'
 }));
 app.use(bodyParser.json());
 
