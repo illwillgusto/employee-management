@@ -16,7 +16,7 @@ function Dashboard() {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:3001/employees')
+        fetch('http://localhost:3003/employees')
           .then(response => response.json())
           .then(data => {
             console.log("Data received from backend:", data);
@@ -56,7 +56,7 @@ function Dashboard() {
                 setEmployees(employees.filter(employee => employee.id !== id));
              }
          });
-        
+
     }
 
 
@@ -79,7 +79,7 @@ function Dashboard() {
             setIsAdding={setIsAdding} />
       )}
       {isEditing && (
-        <Edit 
+        <Edit
             employees={employees}
             selectedEmployee={selectedEmployee}
             setEmployees={setEmployees}
