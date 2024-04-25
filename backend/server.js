@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { error } = require('console');
 
 const app = express();
 const PORT = 3003;
@@ -9,9 +10,11 @@ const DATA_FILE = './employeesData.json';
 
 // this tells the backend what ports are allowed to fetch data from the json file
 app.use(cors({
-    origin: 'http://localhost:3002/',
+    origin: 'http://localhost:3002',
     methods: ['GET', 'POST']
 }));
+
+
 app.use(bodyParser.json());
 
 // Endpoint to get employees
@@ -21,7 +24,12 @@ app.get('/employees', (req, res) => {
             res.status(500).send('Error reading data file.');
             return;
         }
-        res.json(JSON.parse(data));
+        try {
+            const employees = JSON.parse(data);
+            res.json(employees);
+        } catch (parseError) {
+            res.status(500).json({error: 'Error parsing JSON data.'});
+        }
     });
 });
 
