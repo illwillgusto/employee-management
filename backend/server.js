@@ -7,9 +7,10 @@ const app = express();
 const PORT = 3003;
 const DATA_FILE = './employeesData.json';
 
-// this tells the backend what ports are allowed to fetch data from the json file 
+// this tells the backend what ports are allowed to fetch data from the json file
 app.use(cors({
-    origin: 'http://localhost:3002/'
+    origin: 'http://localhost:3002/',
+    methods: ['GET', 'POST']
 }));
 app.use(bodyParser.json());
 
