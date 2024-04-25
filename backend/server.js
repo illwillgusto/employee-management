@@ -43,16 +43,30 @@ app.post('/employees', (req, res) => {
             res.status(500).send('Error reading data file.');
             return;
         }
-        const employees = JSON.parse(data);
-        employees.push(newEmployee); // This should be modified to handle updates as well
-        fs.writeFile(DATA_FILE, JSON.stringify(employees, null, 2), (err) => {
-            if (err) {
-                res.status(500).send('Error writing to data file.');
-                return;
-            }
-            res.send('Employee added/updated.');
+        try {
+            let employees = JSON.parse(data);
+
+            // Create a new employee object with the information provided
+            const newEmployee = {
+                id: employees.length + 1,
+                ...req.body
+            };
+
+            employees.push(newEmployee); // This should be modified to handle updates as well
+            fs.writeFile(DATA_FILE, JSON.stringify(employees, null, 2), (err) => {
+                if (err) {
+                    res.status(500).send('Error writing to data file.');
+                    return;
+                }
+                res.send('Employee added/updated.');
+
         });
-    });
+
+    } catch (parseError) {
+        res.status(500).send('Error parsing data file.');
+    }
+});
+
 });
 
 app.listen(PORT, () => {
