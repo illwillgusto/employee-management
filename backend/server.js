@@ -14,6 +14,8 @@ app.use(cors({
     methods: ['GET', 'POST']
 }));
 
+app.use(express.json());
+
 
 app.use(bodyParser.json());
 
