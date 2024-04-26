@@ -5,19 +5,16 @@ const cors = require('cors');
 const { error } = require('console');
 
 const app = express();
-const PORT = 3003;
+const PORT = 3004;
 const DATA_FILE = './employeesData.json';
 
 // this tells the backend what ports are allowed to fetch data from the json file
 app.use(cors({
-    origin: 'http://localhost:3005',
+    origin: 'http://localhost:3003',
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
 app.use(express.json());
-
-
 app.use(bodyParser.json());
 
 // Endpoint to get employees
@@ -34,6 +31,18 @@ app.get('/employees', (req, res) => {
             res.status(500).json({error: 'Error parsing JSON data.'});
         }
     });
+});
+
+//Manual Headers
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3005");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    if (req.method === "OPTIONS") {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
 });
 
 // Endpoint to add or update employees
